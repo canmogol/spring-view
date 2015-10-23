@@ -22,7 +22,8 @@
     <!-- ***************** Prototype Example ***************** -->
     <!-- ***************************************************** -->
     <!-- Prototype Controller-->
-    <bean class="com.fererlab.spring.prototype.controller.PrototypeController" id="prototypeController" parent="baseController">
+    <bean class="com.fererlab.spring.prototype.controller.PrototypeController" id="prototypeController"
+          parent="baseController">
         <property name="view" ref="prototypeView"/>
         <property name="userController" ref="userController"/>
     </bean>
@@ -42,7 +43,8 @@
     <bean class="com.fererlab.spring.prototype.view.UserView" id="userView"/>
 
     <!-- Address View Controller-->
-    <bean class="com.fererlab.spring.prototype.controller.AddressController" id="addressController" parent="baseController" scope="prototype">
+    <bean class="com.fererlab.spring.prototype.controller.AddressController" id="addressController"
+          parent="baseController" scope="prototype">
         <property name="view" ref="addressView"/>
     </bean>
     <bean class="com.fererlab.spring.prototype.view.AddressView" id="addressView" scope="prototype"/>
@@ -52,7 +54,8 @@
     <!-- ************* Reusable Factory Example ************** -->
     <!-- ***************************************************** -->
     <!-- Prototype Controller-->
-    <bean class="com.fererlab.spring.reusable.controller.ReusableController" id="reusableController" parent="baseController">
+    <bean class="com.fererlab.spring.reusable.controller.ReusableController" id="reusableController"
+          parent="baseController">
         <property name="view" ref="reusableView"/>
         <property name="carController" ref="carController"/>
     </bean>
@@ -66,9 +69,9 @@
 
     <!-- Address View Controller Factory -->
     <bean id="brandControllerFactory" class="com.fererlab.spring.reusable.factory.BrandControllerFactory"/>
-    <bean id="brandController" factory-bean="brandControllerFactory" factory-method="createBrandController" scope="prototype">
+    <bean id="brandController" factory-bean="brandControllerFactory" factory-method="createBrandController"
+          scope="prototype" parent="baseController">
         <property name="view" ref="brandView"/>
-        <property name="uiListener" ref="mainFrame"/>
     </bean>
     <bean id="brandViewFactory" class="com.fererlab.spring.reusable.factory.BrandViewFactory"/>
     <bean id="brandView" factory-bean="brandViewFactory" factory-method="createBrandView" scope="prototype"/>
