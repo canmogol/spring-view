@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <bean id="mainFrame" class="com.fererlab.spring.app.util.ApplicationFrame">
+        <property name="title" value="UI Tester"/>
+        <property name="menuTitle" value="Inject-Test"/>
+        <property name="menuItemListenerMap">
+            <map>
+                <entry key="Prototype-Test" value-ref="prototypeController"/>
+                <entry key="ReusableFactory-Test" value-ref="reusableController"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- base controller -->
+    <bean class="com.fererlab.spring.app.controller.BaseController" id="baseController" abstract="true">
+        <property name="uiListener" ref="mainFrame"/>
+    </bean>
+
+    <!-- ***************************************************** -->
+    <!-- ***************** Prototype Example ***************** -->
+    <!-- ***************************************************** -->
+    <!-- Prototype Controller-->
+    <bean class="com.fererlab.spring.prototype.controller.PrototypeController" id="prototypeController" parent="baseController">
+        <property name="view" ref="prototypeView"/>
+        <property name="userController" ref="userController"/>
+    </bean>
+    <bean class="com.fererlab.spring.reusable.view.PrototypeView" id="prototypeView"/>
+
+    <!-- User View Controller-->
+    <bean class="com.fererlab.spring.prototype.controller.UserController" id="userController" parent="baseController">
+        <property name="view" ref="userView"/>
+        <property name="addressControllerList">
+            <list>
+                <ref bean="addressController"/>
+                <ref bean="addressController"/>
+                <ref bean="addressController"/>
+            </list>
+        </property>
+    </bean>
+    <bean class="com.fererlab.spring.prototype.view.UserView" id="userView"/>
+
+    <!-- Address View Controller-->
+    <bean class="com.fererlab.spring.prototype.controller.AddressController" id="addressController" parent="baseController" scope="prototype">
+        <property name="view" ref="addressView"/>
+    </bean>
+    <bean class="com.fererlab.spring.prototype.view.AddressView" id="addressView" scope="prototype"/>
+
+
+    <!-- ***************************************************** -->
+    <!-- ************* Reusable Factory Example ************** -->
+    <!-- ***************************************************** -->
+    <!-- Prototype Controller-->
+    <bean class="com.fererlab.spring.reusable.controller.ReusableController" id="reusableController" parent="baseController">
+        <property name="view" ref="reusableView"/>
+        <property name="carController" ref="carController"/>
+    </bean>
+    <bean class="com.fererlab.spring.prototype.view.ReusableView" id="reusableView"/>
+
+    <!-- User View Controller-->
+    <bean class="com.fererlab.spring.reusable.controller.CarController" id="carController" parent="baseController">
+        <property name="view" ref="carView"/>
+    </bean>
+    <bean class="com.fererlab.spring.reusable.view.CarView" id="carView"/>
+
+    <!-- Address View Controller Factory -->
+    <bean id="brandControllerFactory" class="com.fererlab.spring.reusable.factory.BrandControllerFactory"/>
+    <bean id="brandController" factory-bean="brandControllerFactory" factory-method="createBrandController" scope="prototype">
+        <property name="view" ref="brandView"/>
+        <property name="uiListener" ref="mainFrame"/>
+    </bean>
+    <bean id="brandViewFactory" class="com.fererlab.spring.reusable.factory.BrandViewFactory"/>
+    <bean id="brandView" factory-bean="brandViewFactory" factory-method="createBrandView" scope="prototype"/>
+
+
+</beans>
