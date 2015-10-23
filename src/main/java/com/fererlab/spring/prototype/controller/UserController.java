@@ -23,7 +23,7 @@ public class UserController extends BaseController implements CallBack {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (freeAddressControllers.size() > 0) {
-            AddressController controller = freeAddressControllers.remove(freeAddressControllers.size() - 1);
+            AddressController controller = freeAddressControllers.remove(0);
             controller.setCallBack(this);
             controller.init();
         }

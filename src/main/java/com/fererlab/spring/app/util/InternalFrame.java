@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 public abstract class InternalFrame extends JInternalFrame {
 
     private ActionListener listener;
+    private int id;
 
     public InternalFrame(int width, int height, int x, int y) {
         super("", true, false, true, true);
@@ -23,4 +24,11 @@ public abstract class InternalFrame extends JInternalFrame {
         return listener;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

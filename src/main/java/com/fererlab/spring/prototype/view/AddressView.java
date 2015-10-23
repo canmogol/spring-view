@@ -3,21 +3,34 @@ package com.fererlab.spring.prototype.view;
 import com.fererlab.spring.app.util.InternalFrame;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class AddressView extends InternalFrame {
 
     private static int count = 0;
 
     public AddressView() {
-        super(250, 80, 540 + (count * 300) , 10);
+        super(250, 100, 540 + (count * 300) , 10);
+        setTitle("Address View #" + count);
+        setLocation(430, 10 + (count * 100));
+        setId(count);
+        count++;
+        try {
+            System.out.println("AddressView creating super heavy UI " + getId());
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void init() {
-        setTitle("Address View #" + count);
-        setLocation(430, 10 + (count * 100));
+        try {
+            System.out.println("AddressView initializing super heavy UI " + getId());
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
@@ -32,6 +45,5 @@ public class AddressView extends InternalFrame {
         panel.add(button);
 
         add(panel);
-        count++;
     }
 }
