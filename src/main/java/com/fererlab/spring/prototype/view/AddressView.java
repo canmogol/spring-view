@@ -40,7 +40,6 @@ public class AddressView extends InternalFrame {
         JButton button = new JButton();
         button.setText("Create Address");
         button.putClientProperty(JTextField.class, addressField);
-        button.putClientProperty(JTextField.class, addressField);
         button.addActionListener(getListener());
         panel.add(button);
 

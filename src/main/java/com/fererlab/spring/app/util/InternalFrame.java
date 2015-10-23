@@ -16,7 +16,7 @@ public abstract class InternalFrame extends JInternalFrame {
 
     public abstract void init();
 
-    public void registerActionListener(ActionListener listener) {
+    public void setActionListener(ActionListener listener) {
         this.listener = listener;
     }
 

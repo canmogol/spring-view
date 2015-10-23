@@ -14,7 +14,7 @@ public abstract class BaseController implements Controller, ActionListener{
 
     public void setView(InternalFrame view) {
         this.view = view;
-        this.view.registerActionListener(this);
+        this.view.setActionListener(this);
     }
 
     public InternalFrame getView() {
