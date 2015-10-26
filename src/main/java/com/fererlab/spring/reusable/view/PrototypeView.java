@@ -1,10 +1,15 @@
 package com.fererlab.spring.reusable.view;
 
-import com.fererlab.spring.app.util.InternalFrame;
+import com.fererlab.spring.app.ui.SwingInternalFrame;
+import com.fererlab.spring.prototype.model.PrototypeModel;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class PrototypeView extends InternalFrame {
+public class PrototypeView extends SwingInternalFrame implements ActionListener {
+
+    private JButton openUserView;
 
     public PrototypeView() {
         super(200, 70, 10, 10);
@@ -15,11 +20,18 @@ public class PrototypeView extends InternalFrame {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        JButton button = new JButton();
-        button.setText("Open User View");
-        button.addActionListener(getListener());
-        panel.add(button);
+        openUserView = new JButton();
+        openUserView.setText("Open User View");
+        openUserView.addActionListener(this);
+        panel.add(openUserView);
 
         add(panel);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (openUserView.equals(e.getSource())) {
+            getListener().actionPerformed(new PrototypeModel());
+        }
     }
 }

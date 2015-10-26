@@ -1,23 +1,19 @@
 package com.fererlab.spring.prototype.controller;
 
 import com.fererlab.spring.app.controller.BaseController;
+import com.fererlab.spring.app.action.ActionModel;
+import com.fererlab.spring.prototype.model.AddressModel;
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
 
-public class AddressController extends BaseController  {
+public class AddressController extends BaseController {
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() instanceof JButton) {
-            JButton button = (JButton) e.getSource();
-            if (button.getClientProperty(JTextField.class) != null) {
-                JTextField addressField = (JTextField) button.getClientProperty(JTextField.class);
-                String address = addressField.getText();
-                addressField.setText("");
+    public void actionPerformed(ActionModel event) {
+        if (event instanceof AddressModel) {
+            String address = ((AddressModel) event).getAddressText();
+            if (address != null) {
                 getCallBack().call(address);
             }
         }
     }
-
 }

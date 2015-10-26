@@ -1,8 +1,8 @@
 package com.fererlab.spring.prototype.controller;
 
 import com.fererlab.spring.app.controller.BaseController;
+import com.fererlab.spring.app.action.ActionModel;
 
-import java.awt.event.ActionEvent;
 
 public class PrototypeController extends BaseController {
 
@@ -17,7 +17,7 @@ public class PrototypeController extends BaseController {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionModel event) {
         userController.init();
     }
 }

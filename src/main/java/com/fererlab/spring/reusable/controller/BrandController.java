@@ -1,10 +1,9 @@
 package com.fererlab.spring.reusable.controller;
 
 import com.fererlab.spring.app.controller.BaseController;
+import com.fererlab.spring.app.action.ActionModel;
 import com.fererlab.spring.app.util.Reusable;
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
+import com.fererlab.spring.reusable.model.BrandModel;
 
 public class BrandController extends BaseController implements Reusable {
 
@@ -17,23 +16,6 @@ public class BrandController extends BaseController implements Reusable {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() instanceof JButton) {
-            JButton button = (JButton) e.getSource();
-            if (button.getClientProperty(JTextField.class) != null) {
-                JTextField brandField = (JTextField) button.getClientProperty(JTextField.class);
-                String brand = brandField.getText();
-                if(brand != null && !brand.trim().isEmpty()){
-                    brandField.setText("");
-                    getView().setVisible(false);
-                    setReusable(true);
-                    getCallBack().call(brand);
-                }
-            }
-        }
-    }
-
-    @Override
     public void setReusable(boolean reusable) {
         this.reusable = reusable;
     }
@@ -41,5 +23,17 @@ public class BrandController extends BaseController implements Reusable {
     @Override
     public boolean isReusable() {
         return this.reusable;
+    }
+
+    @Override
+    public void actionPerformed(ActionModel event) {
+        if (event instanceof BrandModel) {
+            String brand = ((BrandModel) event).getBrandName();
+            if (brand != null && !brand.trim().isEmpty()) {
+                getView().setVisible(false);
+                setReusable(true);
+                getCallBack().call(brand);
+            }
+        }
     }
 }

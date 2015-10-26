@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-    <bean id="mainFrame" class="com.fererlab.spring.app.util.ApplicationFrame">
+    <bean id="mainFrame" class="com.fererlab.spring.app.ui.ApplicationFrame">
         <property name="title" value="UI Tester"/>
         <property name="menuTitle" value="Inject-Test"/>
         <property name="menuItemListenerMap">
@@ -75,6 +75,17 @@
     </bean>
     <bean id="brandViewFactory" class="com.fererlab.spring.reusable.factory.BrandViewFactory"/>
     <bean id="brandView" factory-bean="brandViewFactory" factory-method="createBrandView" scope="prototype"/>
+
+    <!-- Generic Reusable Factory Example-->
+    <!--
+    <bean id="brandView" factory-bean="brandViewGenericFactory" factory-method="createReusableView" scope="prototype"/>
+    <bean id="brandViewGenericFactory" class="com.fererlab.spring.reusable.factory.ReusableFactory">
+        <property name="beanClass">
+            <value type="java.lang.Class">com.fererlab.spring.reusable.view.BrandView</value>
+        </property>
+    </bean>
+    <bean id="brandViewPrototype" class="com.fererlab.spring.reusable.view.BrandView" scope="prototype"/>
+    -->
 
 
 </beans>

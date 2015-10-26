@@ -1,14 +1,17 @@
-package com.fererlab.spring.app.util;
+package com.fererlab.spring.app.ui;
 
 import com.fererlab.spring.app.controller.Controller;
+import com.fererlab.spring.app.util.UIListener;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.beans.PropertyVetoException;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -41,7 +44,7 @@ public class ApplicationFrame extends JFrame implements ApplicationListener, UIL
             menuItem.setMnemonic(KeyEvent.VK_N);
             menuItem.addActionListener(new ActionListener() {
                 @Override
-                public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(java.awt.event.ActionEvent e) {
                     Controller controller = menuItemListenerMap.get(menuTitle);
                     controller.init();
                     InternalFrame internalFrame = menuItemListenerMap.get(menuTitle).getView();
@@ -65,21 +68,23 @@ public class ApplicationFrame extends JFrame implements ApplicationListener, UIL
         try {
             internalFrame.setSelected(true);
             internalFrame.requestFocus();
-        } catch (PropertyVetoException e1) {
+        } catch (Exception e1) {
         }
         for (Component component : desktopPane.getComponents()) {
             if (component.equals(internalFrame)) {
                 return;
             }
         }
-        desktopPane.add(internalFrame);
+        if (internalFrame instanceof JComponent) {
+            desktopPane.add((JComponent) internalFrame);
+        }
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 try {
                     internalFrame.setSelected(true);
                     internalFrame.requestFocus();
-                } catch (PropertyVetoException e1) {
+                } catch (Exception e1) {
                 }
             }
         });

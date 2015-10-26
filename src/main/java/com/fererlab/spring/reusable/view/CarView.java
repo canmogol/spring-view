@@ -1,10 +1,13 @@
 package com.fererlab.spring.reusable.view;
 
-import com.fererlab.spring.app.util.InternalFrame;
+import com.fererlab.spring.app.ui.SwingInternalFrame;
+import com.fererlab.spring.reusable.model.CarModel;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class CarView extends InternalFrame {
+public class CarView extends SwingInternalFrame {
 
     private JTextArea textArea;
 
@@ -24,7 +27,12 @@ public class CarView extends InternalFrame {
 
         JButton button = new JButton();
         button.setText("Open BrandView");
-        button.addActionListener(getListener());
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getListener().actionPerformed(new CarModel());
+            }
+        });
         panel.add(button);
 
         add(panel);

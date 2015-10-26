@@ -1,8 +1,7 @@
 package com.fererlab.spring.reusable.controller;
 
 import com.fererlab.spring.app.controller.BaseController;
-
-import java.awt.event.ActionEvent;
+import com.fererlab.spring.app.action.ActionModel;
 
 public class ReusableController extends BaseController {
 
@@ -17,7 +16,7 @@ public class ReusableController extends BaseController {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionModel event) {
         carController.init();
     }
 }

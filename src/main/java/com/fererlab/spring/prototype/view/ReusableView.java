@@ -1,10 +1,13 @@
 package com.fererlab.spring.prototype.view;
 
-import com.fererlab.spring.app.util.InternalFrame;
+import com.fererlab.spring.app.ui.SwingInternalFrame;
+import com.fererlab.spring.reusable.model.ReusableModel;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ReusableView extends InternalFrame {
+public class ReusableView extends SwingInternalFrame {
 
     public ReusableView() {
         super(200, 70, 700, 10);
@@ -17,7 +20,12 @@ public class ReusableView extends InternalFrame {
 
         JButton button = new JButton();
         button.setText("Open Car View");
-        button.addActionListener(getListener());
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getListener().actionPerformed(new ReusableModel());
+            }
+        });
         panel.add(button);
 
         add(panel);

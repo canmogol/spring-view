@@ -1,12 +1,12 @@
 package com.fererlab.spring.app.controller;
 
+import com.fererlab.spring.app.action.ActionModelListener;
+import com.fererlab.spring.app.ui.InternalFrame;
 import com.fererlab.spring.app.util.CallBack;
-import com.fererlab.spring.app.util.InternalFrame;
 import com.fererlab.spring.app.util.UIListener;
 
-import java.awt.event.ActionListener;
 
-public abstract class BaseController implements Controller, ActionListener{
+public abstract class BaseController implements Controller, ActionModelListener {
 
     private InternalFrame view;
     private UIListener uiListener;
@@ -19,10 +19,6 @@ public abstract class BaseController implements Controller, ActionListener{
 
     public InternalFrame getView() {
         return view;
-    }
-
-    public UIListener getUiListener() {
-        return uiListener;
     }
 
     public void setUiListener(UIListener uiListener) {
