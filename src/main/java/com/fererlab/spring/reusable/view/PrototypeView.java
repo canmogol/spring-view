@@ -12,20 +12,22 @@ public class PrototypeView extends SwingInternalFrame implements ActionListener 
     private JButton openUserView;
 
     public PrototypeView() {
+        // set dimensions and location
         super(200, 70, 10, 10);
-    }
 
-    @Override
-    public void init() {
+        // create UI
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
         openUserView = new JButton();
         openUserView.setText("Open User View");
         openUserView.addActionListener(this);
         panel.add(openUserView);
-
         add(panel);
+    }
+
+    @Override
+    public void init() {
+        // do something time consuming
     }
 
     @Override

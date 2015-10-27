@@ -10,11 +10,10 @@ import java.awt.event.ActionListener;
 public class ReusableView extends SwingInternalFrame {
 
     public ReusableView() {
+        // set dimensions and location
         super(200, 70, 700, 10);
-    }
 
-    @Override
-    public void init() {
+        // create UI
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
@@ -27,7 +26,11 @@ public class ReusableView extends SwingInternalFrame {
             }
         });
         panel.add(button);
-
         add(panel);
+    }
+
+    @Override
+    public void init() {
+        // do something time consuming
     }
 }

@@ -15,12 +15,14 @@ public class AddressView extends SwingInternalFrame implements ActionListener {
     private JTextField addressField = new JTextField();
 
     public AddressView() {
+        // set dimensions and location
         super(250, 100, 540 + (count * 300), 10);
         setTitle("Address View #" + count);
         setLocation(430, 10 + (count * 100));
         setId(count);
         count++;
 
+        // create UI
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(addressField);
@@ -28,7 +30,6 @@ public class AddressView extends SwingInternalFrame implements ActionListener {
         createAddressButton.addActionListener(this);
         panel.add(createAddressButton);
         add(panel);
-
         try {
             System.out.println("AddressView creating super heavy UI " + getId());
             Thread.sleep(1000);
@@ -39,6 +40,7 @@ public class AddressView extends SwingInternalFrame implements ActionListener {
 
     @Override
     public void init() {
+        // do something time consuming
         try {
             System.out.println("AddressView initializing super heavy UI " + getId());
             Thread.sleep(100);

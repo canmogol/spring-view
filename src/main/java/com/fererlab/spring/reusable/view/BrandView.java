@@ -16,12 +16,14 @@ public class BrandView extends SwingInternalFrame implements Reusable, ActionLis
     private JTextField brandField = new JTextField();
 
     public BrandView() {
+        // set dimensions and location
         super(250, 100, 1140, 10 + (count * 300));
         setTitle("Brand View #" + count);
         setLocation(1140 + (count * 10), 10 + (count * 10));
         setId(count);
         count++;
 
+        // create UI
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(brandField);
@@ -29,7 +31,6 @@ public class BrandView extends SwingInternalFrame implements Reusable, ActionLis
         createBrandButton.addActionListener(this);
         panel.add(createBrandButton);
         add(panel);
-
         try {
             System.out.println("BrandView creating super heavy UI " + getId());
             Thread.sleep(1000);
@@ -40,6 +41,7 @@ public class BrandView extends SwingInternalFrame implements Reusable, ActionLis
 
     @Override
     public void init() {
+        // do something time consuming
         try {
             System.out.println("BrandView initializing super heavy UI " + getId());
             Thread.sleep(100);
