@@ -1,6 +1,6 @@
-package com.fererlab.spring.prototype.view;
+package com.fererlab.spring.prototype.view.swing;
 
-import com.fererlab.spring.app.ui.SwingInternalFrame;
+import com.fererlab.spring.swingapp.ui.SwingInternalFrame;
 import com.fererlab.spring.reusable.model.ReusableModel;
 
 import javax.swing.*;

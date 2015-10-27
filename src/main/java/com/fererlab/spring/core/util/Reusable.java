@@ -1,4 +1,4 @@
-package com.fererlab.spring.app.util;
+package com.fererlab.spring.core.util;
 
 public interface Reusable {
 

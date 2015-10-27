@@ -1,6 +1,7 @@
-package com.fererlab.spring.app.ui;
+package com.fererlab.spring.swingapp.ui;
 
-import com.fererlab.spring.app.action.ActionModelListener;
+import com.fererlab.spring.core.action.ActionModelListener;
+import com.fererlab.spring.core.ui.InternalFrame;
 
 import javax.swing.*;
 

@@ -1,6 +1,6 @@
 package com.fererlab.spring.prototype.model;
 
-import com.fererlab.spring.app.action.BaseActionModel;
+import com.fererlab.spring.core.action.BaseActionModel;
 
 public class AddressModel extends BaseActionModel {
 

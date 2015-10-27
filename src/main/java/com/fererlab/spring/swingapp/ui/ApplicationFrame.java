@@ -1,7 +1,8 @@
-package com.fererlab.spring.app.ui;
+package com.fererlab.spring.swingapp.ui;
 
-import com.fererlab.spring.app.controller.Controller;
-import com.fererlab.spring.app.util.UIListener;
+import com.fererlab.spring.core.controller.Controller;
+import com.fererlab.spring.core.ui.InternalFrame;
+import com.fererlab.spring.core.util.UIListener;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;

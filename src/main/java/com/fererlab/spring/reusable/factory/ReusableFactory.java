@@ -1,8 +1,8 @@
 package com.fererlab.spring.reusable.factory;
 
-import com.fererlab.spring.app.ui.InternalFrame;
-import com.fererlab.spring.app.ui.SwingInternalFrame;
-import com.fererlab.spring.app.util.Reusable;
+import com.fererlab.spring.core.ui.InternalFrame;
+import com.fererlab.spring.swingapp.ui.SwingInternalFrame;
+import com.fererlab.spring.core.util.Reusable;
 
 import java.util.ArrayList;
 import java.util.List;

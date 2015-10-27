@@ -1,9 +1,9 @@
 package com.fererlab.spring.prototype.controller;
 
-import com.fererlab.spring.app.controller.BaseController;
-import com.fererlab.spring.app.action.ActionModel;
-import com.fererlab.spring.app.util.CallBack;
-import com.fererlab.spring.prototype.view.UserView;
+import com.fererlab.spring.core.controller.BaseController;
+import com.fererlab.spring.core.action.ActionModel;
+import com.fererlab.spring.core.util.CallBack;
+import com.fererlab.spring.prototype.view.swing.UserView;
 
 import java.util.ArrayList;
 import java.util.List;

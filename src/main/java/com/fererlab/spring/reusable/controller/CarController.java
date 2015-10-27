@@ -1,9 +1,9 @@
 package com.fererlab.spring.reusable.controller;
 
-import com.fererlab.spring.app.controller.BaseController;
-import com.fererlab.spring.app.action.ActionModel;
-import com.fererlab.spring.app.util.CallBack;
-import com.fererlab.spring.reusable.view.CarView;
+import com.fererlab.spring.core.controller.BaseController;
+import com.fererlab.spring.core.action.ActionModel;
+import com.fererlab.spring.core.util.CallBack;
+import com.fererlab.spring.reusable.view.swing.CarView;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

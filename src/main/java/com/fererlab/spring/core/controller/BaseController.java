@@ -1,9 +1,9 @@
-package com.fererlab.spring.app.controller;
+package com.fererlab.spring.core.controller;
 
-import com.fererlab.spring.app.action.ActionModelListener;
-import com.fererlab.spring.app.ui.InternalFrame;
-import com.fererlab.spring.app.util.CallBack;
-import com.fererlab.spring.app.util.UIListener;
+import com.fererlab.spring.core.action.ActionModelListener;
+import com.fererlab.spring.core.ui.InternalFrame;
+import com.fererlab.spring.core.util.CallBack;
+import com.fererlab.spring.core.util.UIListener;
 
 
 public abstract class BaseController implements Controller, ActionModelListener {

@@ -1,7 +1,7 @@
 package com.fererlab.spring.reusable.controller;
 
-import com.fererlab.spring.app.controller.BaseController;
-import com.fererlab.spring.app.action.ActionModel;
+import com.fererlab.spring.core.controller.BaseController;
+import com.fererlab.spring.core.action.ActionModel;
 
 public class ReusableController extends BaseController {
 

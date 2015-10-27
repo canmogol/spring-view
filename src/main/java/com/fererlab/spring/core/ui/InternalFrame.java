@@ -1,6 +1,6 @@
-package com.fererlab.spring.app.ui;
+package com.fererlab.spring.core.ui;
 
-import com.fererlab.spring.app.action.ActionModelListener;
+import com.fererlab.spring.core.action.ActionModelListener;
 
 public interface InternalFrame {
 

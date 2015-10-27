@@ -1,6 +1,6 @@
 package com.fererlab.spring.reusable.factory;
 
-import com.fererlab.spring.reusable.view.BrandView;
+import com.fererlab.spring.reusable.view.swing.BrandView;
 
 import java.util.ArrayList;
 import java.util.List;

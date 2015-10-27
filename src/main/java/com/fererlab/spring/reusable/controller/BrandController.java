@@ -1,8 +1,8 @@
 package com.fererlab.spring.reusable.controller;
 
-import com.fererlab.spring.app.controller.BaseController;
-import com.fererlab.spring.app.action.ActionModel;
-import com.fererlab.spring.app.util.Reusable;
+import com.fererlab.spring.core.controller.BaseController;
+import com.fererlab.spring.core.action.ActionModel;
+import com.fererlab.spring.core.util.Reusable;
 import com.fererlab.spring.reusable.model.BrandModel;
 
 public class BrandController extends BaseController implements Reusable {
