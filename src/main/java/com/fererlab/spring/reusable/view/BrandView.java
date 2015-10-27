@@ -9,13 +9,26 @@ public class BrandView extends InternalFrame implements Reusable {
 
     private static int count = 0;
     private boolean reusable = false;
+    private JButton createBrandButton;
+    private JTextField brandField;
 
     public BrandView() {
+        // set dimensions and location
         super(250, 100, 1140, 10 + (count * 300));
         setTitle("Brand View #" + count);
         setLocation(1140 + (count * 10), 10 + (count * 10));
         setId(count);
         count++;
+        // create UI elements
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        brandField = new JTextField();
+        panel.add(brandField);
+        createBrandButton = new JButton();
+        createBrandButton.setText("Create Brand");
+        createBrandButton.putClientProperty(JTextField.class, brandField);
+        panel.add(createBrandButton);
+        add(panel);
         try {
             System.out.println("BrandView creating super heavy UI " + getId());
             Thread.sleep(1000);
@@ -26,26 +39,21 @@ public class BrandView extends InternalFrame implements Reusable {
 
     @Override
     public void init() {
+        // do something time consuming
         try {
             System.out.println("BrandView initializing super heavy UI " + getId());
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+    public JButton getCreateBrandButton() {
+        return createBrandButton;
+    }
 
-        JTextField brandField = new JTextField();
-        panel.add(brandField);
-
-        JButton button = new JButton();
-        button.setText("Create Brand");
-        button.putClientProperty(JTextField.class, brandField);
-        button.addActionListener(getListener());
-        panel.add(button);
-
-        add(panel);
+    public JTextField getBrandField() {
+        return brandField;
     }
 
     @Override

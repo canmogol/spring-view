@@ -7,27 +7,27 @@ import javax.swing.*;
 public class CarView extends InternalFrame {
 
     private JTextArea textArea;
+    private JButton openBrandViewButton;
 
     public CarView() {
+        // set dimensions and location
         super(200, 400, 920, 10);
-    }
-
-    @Override
-    public void init() {
+        // create UI elements
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
         textArea = new JTextArea();
         textArea.setColumns(40);
         textArea.setText("log:\n");
         panel.add(textArea);
-
-        JButton button = new JButton();
-        button.setText("Open BrandView");
-        button.addActionListener(getListener());
-        panel.add(button);
-
+        openBrandViewButton = new JButton();
+        openBrandViewButton.setText("Open BrandView");
+        panel.add(openBrandViewButton);
         add(panel);
+    }
+
+    @Override
+    public void init() {
+        // do something time consuming
     }
 
     public void addBrand(String brand) {
@@ -36,4 +36,7 @@ public class CarView extends InternalFrame {
         }
     }
 
+    public JButton getOpenBrandViewButton() {
+        return openBrandViewButton;
+    }
 }

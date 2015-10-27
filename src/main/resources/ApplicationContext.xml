@@ -27,7 +27,7 @@
         <property name="view" ref="prototypeView"/>
         <property name="userController" ref="userController"/>
     </bean>
-    <bean class="com.fererlab.spring.reusable.view.PrototypeView" id="prototypeView"/>
+    <bean class="com.fererlab.spring.prototype.view.PrototypeView" id="prototypeView"/>
 
     <!-- User View Controller-->
     <bean class="com.fererlab.spring.prototype.controller.UserController" id="userController" parent="baseController">
@@ -59,7 +59,7 @@
         <property name="view" ref="reusableView"/>
         <property name="carController" ref="carController"/>
     </bean>
-    <bean class="com.fererlab.spring.prototype.view.ReusableView" id="reusableView"/>
+    <bean class="com.fererlab.spring.reusable.view.ReusableView" id="reusableView"/>
 
     <!-- User View Controller-->
     <bean class="com.fererlab.spring.reusable.controller.CarController" id="carController" parent="baseController">

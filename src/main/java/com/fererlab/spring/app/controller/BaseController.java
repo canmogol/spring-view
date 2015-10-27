@@ -6,7 +6,7 @@ import com.fererlab.spring.app.util.UIListener;
 
 import java.awt.event.ActionListener;
 
-public abstract class BaseController implements Controller, ActionListener{
+public abstract class BaseController implements Controller{
 
     private InternalFrame view;
     private UIListener uiListener;
@@ -14,7 +14,6 @@ public abstract class BaseController implements Controller, ActionListener{
 
     public void setView(InternalFrame view) {
         this.view = view;
-        this.view.setActionListener(this);
     }
 
     public InternalFrame getView() {

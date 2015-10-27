@@ -8,13 +8,25 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CarController extends BaseController implements CallBack, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void init() {
+        super.init();
+        CarView view = (CarView) getView();
+        view.getOpenBrandViewButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openBrandController();
+            }
+        });
+    }
+
+    private void openBrandController() {
         BrandController brandController = applicationContext.getBean(BrandController.class);
         brandController.setCallBack(this);
         brandController.init();
@@ -33,4 +45,5 @@ public class CarController extends BaseController implements CallBack, Applicati
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
     }
+
 }
