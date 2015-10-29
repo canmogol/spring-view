@@ -2,10 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
+    <!-- Swing Main Application -->
+    <bean id="mainFrame" class="com.fererlab.spring.swingapp.ui.ApplicationFrame">
+        <property name="title" value="UI Tester"/>
+        <property name="menuTitle" value="Inject-Test"/>
+        <property name="menuItemListenerMap">
+            <map>
+                <entry key="Prototype-Test" value-ref="prototypeController"/>
+                <entry key="ReusableFactory-Test" value-ref="reusableController"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- Prototype Views -->
     <bean class="com.fererlab.spring.reusable.view.swing.PrototypeView" id="prototypeView"/>
     <bean class="com.fererlab.spring.prototype.view.swing.UserView" id="userView"/>
     <bean class="com.fererlab.spring.prototype.view.swing.AddressView" id="addressView" scope="prototype"/>
 
+    <!-- Reusable Views -->
     <bean class="com.fererlab.spring.prototype.view.swing.ReusableView" id="reusableView"/>
     <bean class="com.fererlab.spring.reusable.view.swing.CarView" id="carView"/>
     <bean id="brandView" factory-bean="brandViewGenericFactory" factory-method="createReusableView" scope="prototype"/>
@@ -14,16 +28,5 @@
             <value type="java.lang.Class">com.fererlab.spring.reusable.view.swing.BrandView</value>
         </property>
     </bean>
-    <!--<bean id="brandViewPrototype" class="com.fererlab.spring.reusable.view.swing.BrandView" scope="prototype"/>-->
-
-    <!-- ALTERNATIVE - Address View Controller Factory -->
-    <!--<bean id="brandControllerFactory" class="com.fererlab.spring.reusable.factory.BrandControllerFactory"/>-->
-    <!--<bean id="brandController" factory-bean="brandControllerFactory" factory-method="createBrandController"-->
-    <!--scope="prototype" parent="baseController">-->
-    <!--<property name="view" ref="brandView"/>-->
-    <!--</bean>-->
-    <!--<bean id="brandViewFactory" class="com.fererlab.spring.reusable.factory.BrandViewFactory"/>-->
-    <!--<bean id="brandView" factory-bean="brandViewFactory" factory-method="createBrandView" scope="prototype"/>-->
-
 
 </beans>
