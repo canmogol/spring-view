@@ -3,7 +3,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
     <!-- Swing Main Application -->
-    <bean id="mainFrame" class="com.fererlab.spring.swingapp.ui.ApplicationFrame">
+    <bean id="mainFrame" class="com.fererlab.app.swing.ui.ApplicationFrame">
         <property name="title" value="UI Tester"/>
         <property name="menuTitle" value="Inject-Test"/>
         <property name="menuItemListenerMap">
@@ -15,17 +15,17 @@
     </bean>
 
     <!-- Prototype Views -->
-    <bean class="com.fererlab.spring.prototype.view.swing.PrototypeView" id="prototypeView"/>
-    <bean class="com.fererlab.spring.prototype.view.swing.UserView" id="userView"/>
-    <bean class="com.fererlab.spring.prototype.view.swing.AddressView" id="addressView" scope="prototype"/>
+    <bean class="com.fererlab.module.prototype.view.swing.PrototypeView" id="prototypeView"/>
+    <bean class="com.fererlab.module.prototype.view.swing.UserView" id="userView"/>
+    <bean class="com.fererlab.module.prototype.view.swing.AddressView" id="addressView" scope="prototype"/>
 
     <!-- Reusable Views -->
-    <bean class="com.fererlab.spring.reusable.view.swing.ReusableView" id="reusableView"/>
-    <bean class="com.fererlab.spring.reusable.view.swing.CarView" id="carView"/>
+    <bean class="com.fererlab.module.reusable.view.swing.ReusableView" id="reusableView"/>
+    <bean class="com.fererlab.module.reusable.view.swing.CarView" id="carView"/>
     <bean id="brandView" factory-bean="brandViewGenericFactory" factory-method="createReusableView" scope="prototype"/>
-    <bean id="brandViewGenericFactory" class="com.fererlab.spring.reusable.factory.ReusableFactory">
+    <bean id="brandViewGenericFactory" class="com.fererlab.module.reusable.factory.ReusableFactory">
         <property name="beanClass">
-            <value type="java.lang.Class">com.fererlab.spring.reusable.view.swing.BrandView</value>
+            <value type="java.lang.Class">com.fererlab.module.reusable.view.swing.BrandView</value>
         </property>
     </bean>
 
