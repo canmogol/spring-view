@@ -34,7 +34,7 @@ public class BrandView extends SwingInternalFrame implements Reusable {
             @Override
             public void actionPerformed(ActionEvent e) {
                 BrandModel brandModel = new BrandModel(brandField.getText());
-                getListener().actionPerformed(brandModel);
+                getActionListener().actionPerformed(brandModel);
                 brandField.setText("");
             }
         });

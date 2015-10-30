@@ -35,7 +35,7 @@ public class AddressView extends SwingInternalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 AddressModel addressModel = new AddressModel(addressField.getText());
-                getListener().actionPerformed(addressModel);
+                getActionListener().actionPerformed(addressModel);
                 addressField.setText("");
             }
         });
@@ -47,7 +47,7 @@ public class AddressView extends SwingInternalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GenerateNewAddressModel generateNewAddressModel = new GenerateNewAddressModel();
-                getListener().actionPerformed(generateNewAddressModel);
+                getActionListener().actionPerformed(generateNewAddressModel);
             }
         });
         panel.add(generateNewAddressText);

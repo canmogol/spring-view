@@ -1,7 +1,10 @@
 package com.fererlab.module.prototype.view.swt;
 
-/**
- * canm
- */
-public class UserView {
+import com.fererlab.app.swt.ui.SwtInternalFrame;
+
+public class UserView extends SwtInternalFrame {
+    @Override
+    public void init() {
+
+    }
 }

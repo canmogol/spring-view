@@ -22,7 +22,7 @@ public abstract class SwingInternalFrame extends JInternalFrame implements View 
         this.listener = listener;
     }
 
-    public ActionListener getListener() {
+    public ActionListener getActionListener() {
         return listener;
     }
 

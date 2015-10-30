@@ -1,7 +1,10 @@
 package com.fererlab.module.reusable.view.swt;
 
-/**
- * canm
- */
-public class CarView {
+import com.fererlab.app.swt.ui.SwtInternalFrame;
+
+public class CarView extends SwtInternalFrame {
+    @Override
+    public void init() {
+
+    }
 }

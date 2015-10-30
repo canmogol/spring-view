@@ -11,7 +11,7 @@ public interface View {
 
     void setActionListener(ActionListener listener);
 
-    ActionListener getListener();
+    ActionListener getActionListener();
 
     void init();
 

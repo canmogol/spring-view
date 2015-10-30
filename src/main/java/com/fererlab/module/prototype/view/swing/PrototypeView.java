@@ -21,7 +21,7 @@ public class PrototypeView extends SwingInternalFrame  {
         openUserView.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getListener().actionPerformed(new PrototypeModel());
+                getActionListener().actionPerformed(new PrototypeModel());
             }
         });
         panel.add(openUserView);

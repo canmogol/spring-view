@@ -22,7 +22,7 @@ public class ReusableView extends SwingInternalFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getListener().actionPerformed(new ReusableModel());
+                getActionListener().actionPerformed(new ReusableModel());
             }
         });
         panel.add(button);

@@ -27,7 +27,7 @@ public class UserView extends SwingInternalFrame {
         openAddressViewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getListener().actionPerformed(new UserModel());
+                getActionListener().actionPerformed(new UserModel());
             }
         });
         panel.add(openAddressViewButton);

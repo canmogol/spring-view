@@ -1,7 +1,10 @@
 package com.fererlab.module.prototype.view.swt;
 
-/**
- * canm
- */
-public class PrototypeView {
+import com.fererlab.app.swt.ui.SwtInternalFrame;
+
+public class PrototypeView extends SwtInternalFrame {
+    @Override
+    public void init() {
+
+    }
 }

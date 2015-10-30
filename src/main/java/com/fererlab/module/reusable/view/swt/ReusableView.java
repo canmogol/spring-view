@@ -1,7 +1,10 @@
 package com.fererlab.module.reusable.view.swt;
 
-/**
- * canm
- */
-public class ReusableView {
+import com.fererlab.app.swt.ui.SwtInternalFrame;
+
+public class ReusableView extends SwtInternalFrame {
+    @Override
+    public void init() {
+
+    }
 }

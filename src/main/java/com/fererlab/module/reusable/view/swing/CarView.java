@@ -27,7 +27,7 @@ public class CarView extends SwingInternalFrame {
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                getListener().actionPerformed(new CarModel());
+                getActionListener().actionPerformed(new CarModel());
             }
         });
         panel.add(button);
