@@ -1,8 +1,10 @@
 package com.fererlab.spring.prototype.controller;
 
 import com.fererlab.spring.core.controller.BaseController;
-import com.fererlab.spring.core.action.ActionModel;
-import com.fererlab.spring.core.util.CallBack;
+import com.fererlab.spring.core.model.AlertMessage;
+import com.fererlab.spring.core.model.Model;
+import com.fererlab.spring.core.common.CallBack;
+import com.fererlab.spring.prototype.model.UserModel;
 import com.fererlab.spring.prototype.view.swing.UserView;
 
 import java.util.ArrayList;
@@ -30,11 +32,15 @@ public class UserController extends BaseController implements CallBack {
     }
 
     @Override
-    public void actionPerformed(ActionModel event) {
-        if (freeAddressControllers.size() > 0) {
-            AddressController controller = freeAddressControllers.remove(0);
-            controller.setCallBack(this);
-            controller.init();
+    public void actionPerformed(Model model) {
+        if (model instanceof UserModel) {
+            if (freeAddressControllers.size() > 0) {
+                AddressController controller = freeAddressControllers.remove(0);
+                controller.setCallBack(this);
+                controller.init();
+            } else {
+                getView().notify(new AlertMessage("No free address available"));
+            }
         }
     }
 }

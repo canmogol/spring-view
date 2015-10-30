@@ -1,6 +1,6 @@
 package com.fererlab.spring.prototype.model;
 
-import com.fererlab.spring.core.action.BaseActionModel;
+import com.fererlab.spring.core.model.Model;
 
-public class PrototypeModel extends BaseActionModel {
+public class PrototypeModel implements Model {
 }

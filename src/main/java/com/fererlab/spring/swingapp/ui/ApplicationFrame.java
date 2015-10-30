@@ -1,8 +1,8 @@
 package com.fererlab.spring.swingapp.ui;
 
 import com.fererlab.spring.core.controller.Controller;
-import com.fererlab.spring.core.ui.InternalFrame;
-import com.fererlab.spring.core.util.UIListener;
+import com.fererlab.spring.core.view.View;
+import com.fererlab.spring.core.common.UIListener;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -48,8 +48,8 @@ public class ApplicationFrame extends JFrame implements ApplicationListener, UIL
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     Controller controller = menuItemListenerMap.get(menuTitle);
                     controller.init();
-                    InternalFrame internalFrame = menuItemListenerMap.get(menuTitle).getView();
-                    showView(internalFrame);
+                    View view = menuItemListenerMap.get(menuTitle).getView();
+                    showView(view);
                 }
             });
             menu.add(menuItem);
@@ -64,31 +64,32 @@ public class ApplicationFrame extends JFrame implements ApplicationListener, UIL
         this.setVisible(true);
     }
 
-    public void showView(final InternalFrame internalFrame) {
-        internalFrame.setVisible(true);
-        try {
-            internalFrame.setSelected(true);
-            internalFrame.requestFocus();
-        } catch (Exception e1) {
-        }
-        for (Component component : desktopPane.getComponents()) {
-            if (component.equals(internalFrame)) {
-                return;
+    public void showView(final View view) {
+        if (view instanceof JInternalFrame) {
+            final JInternalFrame internalFrame = (JInternalFrame) view;
+            internalFrame.setVisible(true);
+            try {
+                internalFrame.setSelected(true);
+                internalFrame.requestFocus();
+            } catch (Exception e1) {
             }
-        }
-        if (internalFrame instanceof JComponent) {
-            desktopPane.add((JComponent) internalFrame);
-        }
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    internalFrame.setSelected(true);
-                    internalFrame.requestFocus();
-                } catch (Exception e1) {
+            for (Component component : desktopPane.getComponents()) {
+                if (component.equals(internalFrame)) {
+                    return;
                 }
             }
-        });
+            desktopPane.add((JComponent) internalFrame);
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        internalFrame.setSelected(true);
+                        internalFrame.requestFocus();
+                    } catch (Exception e1) {
+                    }
+                }
+            });
+        }
     }
 
     public void setMenuTitle(String menuTitle) {
@@ -105,4 +106,5 @@ public class ApplicationFrame extends JFrame implements ApplicationListener, UIL
             init();
         }
     }
+
 }

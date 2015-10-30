@@ -3,5 +3,5 @@ package com.fererlab.spring.prototype.view.swt;
 /**
  * canm
  */
-public class ReusableView {
+public class PrototypeView {
 }

@@ -1,13 +1,15 @@
 package com.fererlab.spring.swingapp.ui;
 
-import com.fererlab.spring.core.action.ActionModelListener;
-import com.fererlab.spring.core.ui.InternalFrame;
+import com.fererlab.spring.core.model.AlertMessage;
+import com.fererlab.spring.core.common.ActionListener;
+import com.fererlab.spring.core.model.Model;
+import com.fererlab.spring.core.view.View;
 
 import javax.swing.*;
 
-public abstract class SwingInternalFrame extends JInternalFrame implements InternalFrame {
+public abstract class SwingInternalFrame extends JInternalFrame implements View {
 
-    private ActionModelListener listener;
+    private ActionListener listener;
     private int id;
 
     public SwingInternalFrame(int width, int height, int x, int y) {
@@ -16,22 +18,26 @@ public abstract class SwingInternalFrame extends JInternalFrame implements Inter
         setLocation(x, y);
     }
 
-    @Override
-    public void setActionListener(ActionModelListener listener) {
+    public void setActionListener(ActionListener listener) {
         this.listener = listener;
     }
 
-    @Override
-    public ActionModelListener getListener() {
+    public ActionListener getListener() {
         return listener;
     }
 
     @Override
+    public void notify(Model model) {
+        if (model instanceof AlertMessage) {
+            AlertMessage alertMessage = (AlertMessage) model;
+            JOptionPane.showMessageDialog(this, alertMessage.getMessage());
+        }
+    }
+
     public int getId() {
         return id;
     }
 
-    @Override
     public void setId(int id) {
         this.id = id;
     }

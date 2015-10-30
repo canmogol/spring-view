@@ -1,8 +1,8 @@
 package com.fererlab.spring.reusable.controller;
 
 import com.fererlab.spring.core.controller.BaseController;
-import com.fererlab.spring.core.action.ActionModel;
-import com.fererlab.spring.core.util.CallBack;
+import com.fererlab.spring.core.model.Model;
+import com.fererlab.spring.core.common.CallBack;
 import com.fererlab.spring.reusable.view.swing.CarView;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -27,7 +27,7 @@ public class CarController extends BaseController implements CallBack, Applicati
     }
 
     @Override
-    public void actionPerformed(ActionModel event) {
+    public void actionPerformed(Model model) {
         BrandController brandController = applicationContext.getBean(BrandController.class);
         brandController.setCallBack(this);
         brandController.init();

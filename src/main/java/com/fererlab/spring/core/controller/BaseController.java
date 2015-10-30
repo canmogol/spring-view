@@ -1,23 +1,23 @@
 package com.fererlab.spring.core.controller;
 
-import com.fererlab.spring.core.action.ActionModelListener;
-import com.fererlab.spring.core.ui.InternalFrame;
-import com.fererlab.spring.core.util.CallBack;
-import com.fererlab.spring.core.util.UIListener;
+import com.fererlab.spring.core.common.ActionListener;
+import com.fererlab.spring.core.view.View;
+import com.fererlab.spring.core.common.CallBack;
+import com.fererlab.spring.core.common.UIListener;
 
 
-public abstract class BaseController implements Controller, ActionModelListener {
+public abstract class BaseController implements Controller, ActionListener {
 
-    private InternalFrame view;
+    private View view;
     private UIListener uiListener;
     private CallBack callBack;
 
-    public void setView(InternalFrame view) {
+    public void setView(View view) {
         this.view = view;
         this.view.setActionListener(this);
     }
 
-    public InternalFrame getView() {
+    public View getView() {
         return view;
     }
 

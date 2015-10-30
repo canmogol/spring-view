@@ -1,11 +1,11 @@
 package com.fererlab.spring.core.controller;
 
-import com.fererlab.spring.core.ui.InternalFrame;
-import com.fererlab.spring.core.util.CallBack;
+import com.fererlab.spring.core.view.View;
+import com.fererlab.spring.core.common.CallBack;
 
 public interface Controller {
 
-    InternalFrame getView();
+    View getView();
 
     void init();
 

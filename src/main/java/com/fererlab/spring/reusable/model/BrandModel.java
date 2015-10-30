@@ -1,8 +1,8 @@
 package com.fererlab.spring.reusable.model;
 
-import com.fererlab.spring.core.action.BaseActionModel;
+import com.fererlab.spring.core.model.Model;
 
-public class BrandModel extends BaseActionModel {
+public class BrandModel implements Model {
 
     private String brandName;
 

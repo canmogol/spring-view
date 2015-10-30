@@ -1,18 +1,19 @@
 package com.fererlab.spring.reusable.view.swing;
 
-import com.fererlab.spring.swingapp.ui.SwingInternalFrame;
-import com.fererlab.spring.core.util.Reusable;
+import com.fererlab.spring.core.model.Model;
+import com.fererlab.spring.core.common.Reusable;
 import com.fererlab.spring.reusable.model.BrandModel;
+import com.fererlab.spring.reusable.model.PredefinedBrand;
+import com.fererlab.spring.swingapp.ui.SwingInternalFrame;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class BrandView extends SwingInternalFrame implements Reusable, ActionListener {
+public class BrandView extends SwingInternalFrame implements Reusable {
 
     private static int count = 0;
     private boolean reusable = false;
-    private JButton createBrandButton = new JButton();
     private JTextField brandField = new JTextField();
 
     public BrandView() {
@@ -27,8 +28,16 @@ public class BrandView extends SwingInternalFrame implements Reusable, ActionLis
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(brandField);
+        JButton createBrandButton = new JButton();
         createBrandButton.setText("Create Brand");
-        createBrandButton.addActionListener(this);
+        createBrandButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                BrandModel brandModel = new BrandModel(brandField.getText());
+                getListener().actionPerformed(brandModel);
+                brandField.setText("");
+            }
+        });
         panel.add(createBrandButton);
         add(panel);
         try {
@@ -36,6 +45,15 @@ public class BrandView extends SwingInternalFrame implements Reusable, ActionLis
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void notify(Model model) {
+        super.notify(model);
+        if(model instanceof PredefinedBrand){
+            PredefinedBrand predefinedBrand = (PredefinedBrand) model;
+            brandField.setText(predefinedBrand.getBrand());
         }
     }
 
@@ -48,7 +66,6 @@ public class BrandView extends SwingInternalFrame implements Reusable, ActionLis
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        brandField.setText("");
     }
 
     @Override
@@ -67,10 +84,4 @@ public class BrandView extends SwingInternalFrame implements Reusable, ActionLis
         return this.reusable;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (createBrandButton.equals(e.getSource())) {
-            getListener().actionPerformed(new BrandModel(brandField.getText()));
-        }
-    }
 }

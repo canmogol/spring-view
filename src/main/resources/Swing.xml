@@ -15,12 +15,12 @@
     </bean>
 
     <!-- Prototype Views -->
-    <bean class="com.fererlab.spring.reusable.view.swing.PrototypeView" id="prototypeView"/>
+    <bean class="com.fererlab.spring.prototype.view.swing.PrototypeView" id="prototypeView"/>
     <bean class="com.fererlab.spring.prototype.view.swing.UserView" id="userView"/>
     <bean class="com.fererlab.spring.prototype.view.swing.AddressView" id="addressView" scope="prototype"/>
 
     <!-- Reusable Views -->
-    <bean class="com.fererlab.spring.prototype.view.swing.ReusableView" id="reusableView"/>
+    <bean class="com.fererlab.spring.reusable.view.swing.ReusableView" id="reusableView"/>
     <bean class="com.fererlab.spring.reusable.view.swing.CarView" id="carView"/>
     <bean id="brandView" factory-bean="brandViewGenericFactory" factory-method="createReusableView" scope="prototype"/>
     <bean id="brandViewGenericFactory" class="com.fererlab.spring.reusable.factory.ReusableFactory">
