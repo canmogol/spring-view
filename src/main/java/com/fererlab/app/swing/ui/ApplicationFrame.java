@@ -48,8 +48,6 @@ public class ApplicationFrame extends JFrame implements ApplicationListener, UIL
                 public void actionPerformed(java.awt.event.ActionEvent e) {
                     Controller controller = menuItemListenerMap.get(menuTitle);
                     controller.init();
-                    View view = menuItemListenerMap.get(menuTitle).getView();
-                    showView(view);
                 }
             });
             menu.add(menuItem);

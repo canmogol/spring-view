@@ -4,8 +4,8 @@ import com.fererlab.core.controller.BaseController;
 import com.fererlab.core.model.AlertMessage;
 import com.fererlab.core.model.Model;
 import com.fererlab.core.common.CallBack;
+import com.fererlab.module.prototype.model.AddressModel;
 import com.fererlab.module.prototype.model.UserModel;
-import com.fererlab.module.prototype.view.swing.UserView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,7 @@ public class UserController extends BaseController implements CallBack {
     public void call(Object o) {
         if (o instanceof String) {
             String address = (String) o;
-            UserView userView = (UserView) getView();
-            userView.addAddress(address);
+            getView().notify(new AddressModel(address));
         }
     }
 

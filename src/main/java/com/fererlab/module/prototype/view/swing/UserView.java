@@ -1,6 +1,8 @@
 package com.fererlab.module.prototype.view.swing;
 
 import com.fererlab.app.swing.ui.SwingInternalFrame;
+import com.fererlab.core.model.Model;
+import com.fererlab.module.prototype.model.AddressModel;
 import com.fererlab.module.prototype.model.UserModel;
 
 import javax.swing.*;
@@ -39,9 +41,13 @@ public class UserView extends SwingInternalFrame {
         // do something time consuming
     }
 
-    public void addAddress(String address) {
-        if (address != null && !address.trim().isEmpty()) {
-            this.textArea.append(address + "\n");
+    @Override
+    public void notify(Model model) {
+        super.notify(model);
+        if(model instanceof AddressModel){
+            AddressModel address = (AddressModel) model;
+            this.textArea.append(address.getAddressText() + "\n");
         }
     }
+
 }

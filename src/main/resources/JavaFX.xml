@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+    <!-- Swing Main Application -->
+    <bean id="mainFrame" class="com.fererlab.app.fx.ui.ApplicationFrame">
+        <property name="title" value="UI Tester"/>
+        <property name="menuTitle" value="Inject-Test"/>
+        <property name="menuItemListenerMap">
+            <map>
+                <entry key="Prototype-Test" value-ref="prototypeController"/>
+                <entry key="ReusableFactory-Test" value-ref="reusableController"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- Prototype Views -->
+    <bean class="com.fererlab.module.prototype.view.fx.PrototypeView" id="prototypeView"/>
+    <bean class="com.fererlab.module.prototype.view.fx.UserView" id="userView"/>
+    <bean class="com.fererlab.module.prototype.view.fx.AddressView" id="addressView" scope="prototype"/>
+
+    <!-- Reusable Views -->
+    <bean class="com.fererlab.module.reusable.view.fx.ReusableView" id="reusableView"/>
+    <bean class="com.fererlab.module.reusable.view.fx.CarView" id="carView"/>
+    <bean id="brandView" factory-bean="brandViewGenericFactory" factory-method="createReusableView" scope="prototype"/>
+    <bean id="brandViewGenericFactory" class="com.fererlab.module.reusable.factory.ReusableFactory">
+        <property name="beanClass">
+            <value type="java.lang.Class">com.fererlab.module.reusable.view.fx.BrandView</value>
+        </property>
+    </bean>
+
+</beans>
