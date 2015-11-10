@@ -22,7 +22,7 @@ public class ApplicationFrame extends JFrame implements ApplicationListener, UIL
     private Map<String, Controller> menuItemListenerMap = new HashMap<>();
     private JDesktopPane desktopPane;
 
-    private void init() throws HeadlessException {
+    public void start() throws HeadlessException {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -101,7 +101,7 @@ public class ApplicationFrame extends JFrame implements ApplicationListener, UIL
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
         if (event instanceof ContextRefreshedEvent) {
-            init();
+            start();
         }
     }
 

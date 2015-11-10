@@ -60,9 +60,11 @@
     <!-- User View Controller-->
     <bean class="com.fererlab.module.reusable.controller.CarController" id="carController" parent="baseController">
         <property name="view" ref="carView"/>
+        <property name="brandControllerProvider" ref="brandControllerProvider"/>
     </bean>
 
-    <!-- Address View Controller Factory -->
+    <!-- Address View Controller Provider & Factory -->
+    <bean id="brandControllerProvider" class="com.fererlab.module.reusable.factory.BrandControllerProvider"/>
     <bean id="brandControllerFactory" class="com.fererlab.module.reusable.factory.BrandControllerFactory"/>
     <bean id="brandController" factory-bean="brandControllerFactory" factory-method="createBrandController"
           scope="prototype" parent="baseController">

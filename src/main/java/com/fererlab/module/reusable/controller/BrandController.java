@@ -39,7 +39,7 @@ public class BrandController extends BaseController implements Reusable {
                 setReusable(true);
                 getCallBack().call(brand);
             } else {
-                getView().notify(new AlertMessage("Address field cannot be blank"));
+                getView().notify(new AlertMessage("Brand field cannot be blank"));
             }
         }
     }

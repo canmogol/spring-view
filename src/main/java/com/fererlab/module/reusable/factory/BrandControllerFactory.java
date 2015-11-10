@@ -7,6 +7,17 @@ import java.util.List;
 
 public class BrandControllerFactory {
     private static List<BrandController> brandControllerList = new ArrayList<>();
+    private static BrandControllerFactory instance;
+
+    private BrandControllerFactory() {
+    }
+
+    public static BrandControllerFactory getInstance() {
+        if (instance == null) {
+            instance = new BrandControllerFactory();
+        }
+        return instance;
+    }
 
     public BrandController createBrandController() {
         for (BrandController brandController : brandControllerList) {
