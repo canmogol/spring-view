@@ -48,7 +48,9 @@ public class Main {
         View addressView3 = new com.fererlab.module.prototype.view.swing.AddressView();
         View reusableView = new com.fererlab.module.reusable.view.swing.ReusableView();
         View carView = new com.fererlab.module.reusable.view.swing.CarView();
-        View brandView = new com.fererlab.module.reusable.view.swing.BrandView();
+        // No need for a BrandView object.
+        // The view is obtained by BrandViewProvider, below line commented out
+        // View brandView = new com.fererlab.module.reusable.view.swing.BrandView();
 
         // CREATE CONTROLLERS
         // Address Controller
@@ -76,7 +78,7 @@ public class Main {
         prototypeController.setView(prototypeView);
         prototypeController.setUserController(userController);
 
-        // BrandController Provider for Car Controller
+        // Brand View and Controller Providers for Car Controller
         BrandViewProvider brandViewProvider = new BrandViewProvider();
         BrandControllerProvider brandControllerProvider = new BrandControllerProvider();
         brandControllerProvider.setUiListener(uiListener);

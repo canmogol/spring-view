@@ -16,7 +16,11 @@ public class BrandController extends BaseController implements Reusable {
     @Override
     public void init() {
         super.init();
-        getView().notify(new PredefinedBrand(new String[]{"Mazda", "Suzuki", "Honda"}[new Random().nextInt(3)]));
+        getView().notify(new PredefinedBrand(
+                        new String[]{
+                                "Mazda", "Suzuki", "Honda", "Subaru", "Daihatsu", "Mitsubishi", "Nissan", "Toyota"
+                        }[new Random().nextInt(8)])
+        );
         setReusable(false);
     }
 
