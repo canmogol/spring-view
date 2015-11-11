@@ -10,7 +10,7 @@ import javax.swing.*;
 public abstract class SwingInternalFrame extends JInternalFrame implements View {
 
     private ActionListener listener;
-    private int id;
+    private Object id;
 
     public SwingInternalFrame(int width, int height, int x, int y) {
         super("", true, false, true, true);
@@ -34,11 +34,11 @@ public abstract class SwingInternalFrame extends JInternalFrame implements View 
         }
     }
 
-    public int getId() {
+    public Object getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Object id) {
         this.id = id;
     }
 

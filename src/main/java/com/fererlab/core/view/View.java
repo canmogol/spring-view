@@ -5,6 +5,10 @@ import com.fererlab.core.model.Model;
 
 public interface View {
 
+    Object getId();
+
+    void setId(Object id);
+
     void setVisible(boolean visible);
 
     boolean isVisible();

@@ -15,6 +15,12 @@ public class AddressView extends FxInternalFrame {
 
     private VBox panel;
     private TextField addressField;
+    private static int count = 0;
+
+    public AddressView() {
+        setId(count);
+        count++;
+    }
 
     @Override
     public void init() {
